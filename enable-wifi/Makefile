@@ -7,15 +7,10 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=enable-wifi
-PKG_VERSION:=0.1
 PKG_RELEASE:=1
 
 PKG_MAINTAINER:=Nicholas Smith <nicholas@nbembedded.com>
 PKG_LICENSE:=GPL-3.0-or-later
-PKG_LICENSE_FILES:=COPYING
-
-PKG_INSTALL:=1
-PKG_BUILD_PARALLEL:=1
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -32,23 +27,27 @@ endef
 
 define Package/enable-wifi/description
   This is a simple UCI-defaults script that enables the wifi on the first boot.
-  An optionial encryption/password setting is available.
+  An optional encryption/password setting is available.
 endef
 
+define Build/Compile
+
 ifdef SSID
-  echo "set wireless.@wifi-iface[0].ssid='"$(SSID)"'" >> contents
+	echo "set wireless.@wifi-iface[0].ssid='"$(SSID)"'" >> contents
 endif
 
 ifdef ENCRYPTION
-  echo "set wireless.@wifi-iface[0].encryption='"$(ENCRYPTION)"'" >> contents
+	echo "set wireless.@wifi-iface[0].encryption='"$(ENCRYPTION)"'" >> contents
 endif
 
 ifdef KEY
-  echo "set wireless.@wifi-iface[0].key='"$(KEY)"'" >> contents
+	echo "set wireless.@wifi-iface[0].key='"$(KEY)"'" >> contents
 endif
 
+endef
+
 define Package/enable-wifi/install
-  $(INSTALL_DIR) $(1)/etc/uci-defaults
+	$(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_BIN) ./files/enablewifi.config $(1)/etc/uci-defaults/99999_enablewifi
 endef
 
