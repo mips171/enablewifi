@@ -32,16 +32,16 @@ endef
 
 define Build/Compile
 
-ifdef SSID
-	echo "set wireless.@wifi-iface[0].ssid='"$(SSID)"'" >> contents
+ifdef WIFI_SSID
+	echo "set wireless.@wifi-iface[0].ssid='"$(WIFI_SSID)"'" >> contents
 endif
 
-ifdef ENCRYPTION
-	echo "set wireless.@wifi-iface[0].encryption='"$(ENCRYPTION)"'" >> contents
+ifdef WIFI_ENCRYPTION
+	echo "set wireless.@wifi-iface[0].encryption='"$(WIFI_ENCRYPTION)"'" >> contents
 endif
 
-ifdef KEY
-	echo "set wireless.@wifi-iface[0].key='"$(KEY)"'" >> contents
+ifdef WIFI_KEY
+	echo "set wireless.@wifi-iface[0].key='"$(WIFI_KEY)"'" >> contents
 endif
 
 endef
