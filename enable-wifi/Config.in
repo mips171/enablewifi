@@ -2,21 +2,21 @@ menu "Configuration"
 	depends on PACKAGE_enable-wifi
 
 config SSID
-    string "SSID"
-    default ""
-    help
-      Wireless SSID or name
+	string "SSID"
+	default ""
+	help
+		Wireless SSID or name
 
 config ENCRYPTION
 	string "Encryption"
 	default ""
 	help
-	  Wireless encryption to use
+		Wireless encryption to use
 
 config KEY
 	string "Password"
 	default ""
 	help
-	  Wireless password
+		Wireless password
 
 endmenu
