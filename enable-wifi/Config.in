@@ -18,10 +18,10 @@ config WIFI_ENCRYPTION
 			Supported modes:
 			none - No encryption
 			owe - OWE
-			sae - WPA3 Pers.
-			sae-mixed - WPA2/WPA3 Pers.
-			psk2 - WPA2 Pers.
-			psk - WPA Pers.
+			sae - WPA3 Personal
+			sae-mixed - WPA2/WPA3 Personal
+			psk2 - WPA2 Personal
+			psk - WPA Personal
 
 config WIFI_KEY
 		string
